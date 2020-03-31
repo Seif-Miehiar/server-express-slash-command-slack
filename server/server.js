@@ -5,6 +5,8 @@ var compression = require("compression");
 const botUserOAuthAccessToken =
   "xoxb-958246117539-1025544532499-BmE8Kz7ALXFt9XnD5VVetDsK";
 
+app.use(express.static("public"));
+
 app.use(compression());
 
 app.get("/", (req, res) => res.send("Hello World!"));
