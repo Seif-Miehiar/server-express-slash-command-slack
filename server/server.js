@@ -6,6 +6,8 @@ const botUserOAuthAccessToken =
   "xoxb-958246117539-1025544532499-BmE8Kz7ALXFt9XnD5VVetDsK";
 
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(compression());
 
@@ -19,7 +21,7 @@ app.post(
   },
   {
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+      "Content-Type": "application/x-www-form-urlencoded"
     }
   }
 );
