@@ -11,10 +11,18 @@ app.use(compression());
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
-app.post("/helloPost", (req, res) => {
-  console.log(req.body);
-  res.send("got a post request");
-});
+app.post(
+  "/helloPost",
+  (req, res) => {
+    console.log(req.body);
+    res.send("got a post request");
+  },
+  {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+    }
+  }
+);
 
 const port = process.env.PORT || 5000;
 
