@@ -1,0 +1,26 @@
+{
+  "name": "server-express-slash-command-slack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "node": "^13.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seif-Miehiar/server-express-slash-command-slack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Seif-Miehiar/server-express-slash-command-slack/issues"
+  },
+  "homepage": "https://github.com/Seif-Miehiar/server-express-slash-command-slack#readme"
+}
