@@ -13,8 +13,8 @@ app.get("/", (req, res) => res.send("Hello World!"));
 
 app.post("/helloPost", (req, res) => res.send("got a post request"));
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, function() {
-  console.log(`listening to 5000`);
+  console.log(`listening to ${port}`);
 });
