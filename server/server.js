@@ -3,6 +3,8 @@ const app = express();
 var compression = require("compression");
 var bodyParser = require("body-parser");
 
+let arrayOfLinks = [];
+
 const botUserOAuthAccessToken =
   "xoxb-958246117539-1025544532499-BmE8Kz7ALXFt9XnD5VVetDsK";
 
@@ -15,7 +17,14 @@ app.use(compression());
 app.get("/", (req, res) => res.send("Hello World!"));
 
 app.post("/helloPost", (req, res) => {
-  console.log(req.body);
+  let linkObject = {};
+  linkObject["userName"] = req.body.user_name;
+  linkObject["text"] = req.body.text;
+  linkObject["command"] = req.body.command;
+  linkObject["user_id"] = req.body.user_id;
+  arrayOfLinks.push(linkObject);
+  console.log(linkObject, "\n", arrayOfLinks);
+  //   console.log(req.body);
   res.send("got a post request");
 });
 
