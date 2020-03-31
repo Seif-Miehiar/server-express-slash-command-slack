@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 var compression = require("compression");
+var bodyParser = require("body-parser");
 
 const botUserOAuthAccessToken =
   "xoxb-958246117539-1025544532499-BmE8Kz7ALXFt9XnD5VVetDsK";
