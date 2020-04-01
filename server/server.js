@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 app.use(compression());
 
 app.get("/", (req, res) => {
+  res.send(arrayOfLinks);
   //   res.sendFile(path.join(__dirname + "index.html"));
   res.sendFile(path.join(__dirname, "client", "index.html"));
 });
