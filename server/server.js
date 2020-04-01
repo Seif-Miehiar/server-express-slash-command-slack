@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.use(compression());
 
-app.get("/", (req, res, err) => {
+app.get("/", (err, req, res) => {
   if (err) {
     throw err;
   }
@@ -22,7 +22,9 @@ app.get("/", (req, res, err) => {
   res.sendFile(__dirname + "../client/index.html");
 });
 
-app.post("/helloPost", (req, res) => {
+app.post("/helloPost", (err, req, res) => {
+  if (err) throw err;
+
   let linkObject = {};
   linkObject["userName"] = req.body.user_name;
   linkObject["text"] = req.body.text;
