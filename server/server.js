@@ -34,13 +34,13 @@ function sendMessageToSlackResponseURL(JSONmessage) {
     }
   });
 }
-app.get(
-  "https://hooks.slack.com/commands/TU6783FFV/1041997001798/IliHvlMXCb7N7gxNmpiM7j9e",
-  { "Content-type": "application/json" },
-  {
-    text: "Thanks for your request, we'll process it and get back to you."
-  }
-);
+// app.get(
+//   "https://hooks.slack.com/commands/TU6783FFV/1041997001798/IliHvlMXCb7N7gxNmpiM7j9e",
+//   { "Content-type": "application/json" },
+//   {
+//     text: "Thanks for your request, we'll process it and get back to you."
+//   }
+// );
 app.post("/helloPost", (req, res) => {
   let linkObject = {};
 
