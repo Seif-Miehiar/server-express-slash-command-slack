@@ -18,7 +18,28 @@ app.use(compression());
 // app.get("/", (req, res) => {
 //   res.sendFile(path.join(__dirname + "../client/index.html"));
 // });
-
+function sendMessageToSlackResponseURL(JSONmessage) {
+  var postOptions = {
+    uri:
+      "https://hooks.slack.com/commands/TU6783FFV/1041997001798/IliHvlMXCb7N7gxNmpiM7j9e",
+    method: "POST",
+    headers: {
+      "Content-type": "application/json"
+    },
+    json: {}
+  };
+  request(postOptions, (error, response, body) => {
+    if (error) {
+      // handle errors as you see fit
+    }
+  });
+}
+app.post(
+  "https://hooks.slack.com/commands/TU6783FFV/1041997001798/IliHvlMXCb7N7gxNmpiM7j9e"
+{"Content-type": "application/json"}, {
+    "text": "Thanks for your request, we'll process it and get back to you."
+    
+});
 app.post("/helloPost", (req, res) => {
   let linkObject = {};
 
@@ -30,6 +51,8 @@ app.post("/helloPost", (req, res) => {
   arrayOfLinks.push(linkObject);
 
   console.log(linkObject, "\n", arrayOfLinks, req.body);
+
+  //   sendMessageToSlackResponseURL();
 
   res.send("got a post request");
 });
