@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 var compression = require("compression");
 var bodyParser = require("body-parser");
+var path = require("path");
 
 let arrayOfLinks = [];
 
