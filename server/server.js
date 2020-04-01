@@ -2,22 +2,22 @@ const express = require("express");
 const app = express();
 var compression = require("compression");
 var bodyParser = require("body-parser");
-// var path = require("path");
+var path = require("path");
 
 let arrayOfLinks = [];
 
 const botUserOAuthAccessToken =
   "xoxb-958246117539-1025544532499-BmE8Kz7ALXFt9XnD5VVetDsK";
 
-// app.use(express.static("public"));
+app.use(express.static("client"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(compression());
 
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname + "../client/index.html"));
-// });
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname + "index.html"));
+});
 function sendMessageToSlackResponseURL(JSONmessage) {
   var postOptions = {
     uri:
