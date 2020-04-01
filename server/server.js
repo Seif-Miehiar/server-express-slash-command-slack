@@ -4,7 +4,7 @@ var compression = require("compression");
 var bodyParser = require("body-parser");
 var path = require("path");
 
-let arrayOfLinks = [];
+export let arrayOfLinks = [];
 
 const botUserOAuthAccessToken =
   "xoxb-958246117539-1025544532499-BmE8Kz7ALXFt9XnD5VVetDsK";
