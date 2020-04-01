@@ -4,7 +4,7 @@ var compression = require("compression");
 var bodyParser = require("body-parser");
 var path = require("path");
 
-export let arrayOfLinks = [];
+let arrayOfLinks = [];
 
 const botUserOAuthAccessToken =
   "xoxb-958246117539-1025544532499-BmE8Kz7ALXFt9XnD5VVetDsK";
@@ -65,3 +65,4 @@ const port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log(`listening to ${port}`);
 });
+export default arrayOfLinks;
