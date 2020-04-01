@@ -7,24 +7,14 @@
     <div class="studentLink"></div>
   </body>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <!-- <script type="text/javascript" src="../server/server.js"></script> -->
-  <!-- <script>
-    $document.ready(() => {
-      console.log("hello $AJAX");
-      $ajax({
-        url: "/helloPost",
-        type: "post",
-        datatype: "json",
-        success: data => {
-          console.log("you received some data ", data);
-          $(".studentLink").append(
-            `<div> ${data.userName} +'\n' + ${data.text} </div>`
-          );
-        },
-        error: err => {
-          console.log("here is your err ", err);
-        }
+  <script type="text/javascript" src="../server/server.js"></script>
+  <script>
+    let looper = arrayOfObjects => {
+      arrayOfObjects.forEach(element => {
+        $(
+          `<div><h2> ${element.userName} </h2><p> ${element.text} </p></div>`
+        ).appendTo("body");
       });
-    });
-  </script> -->
+    };
+  </script>
 </html>
