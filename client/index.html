@@ -12,7 +12,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script>
     let looper = data1 => {
-      data1.for(element => {
+      data1.forEach(element => {
         $(
           `<div><h2> ${element.userName} </h2><p> ${element.text} </p></div>`
         ).appendTo("body");
