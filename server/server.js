@@ -17,8 +17,10 @@ app.use(compression());
 
 app.get("/", (req, res) => {
   //   res.sendFile(path.join(__dirname + "index.html"));
-  res.sendFile(path.join(__dirname, "client", "index.html"));
-  res.render("index.ejs", arrayOfLinks);
+  res.sendFile(
+    path.join(__dirname, "client", "index.html", { data: arrayOfLinks })
+  );
+  //   res.render("index.ejs", arrayOfLinks);
 });
 
 function sendMessageToSlackResponseURL(JSONmessage) {
@@ -60,9 +62,9 @@ app.post("/helloPost", (req, res) => {
 
   //   res.send("got a post request");
   res.send({ text: "you successfully sent a request" });
-  app.get("/", (req, res) => {
-    res.send(arrayOfLinks);
-  });
+  //   app.get("/", (req, res) => {
+  //     res.send(arrayOfLinks);
+  //   });
 });
 
 const port = process.env.PORT || 5000;

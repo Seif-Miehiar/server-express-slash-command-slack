@@ -1,6 +1,9 @@
 <html>
   <head>
     <title>server-slash-command</title>
+    <script>
+      var data = "<%= arrayOfObjects %>";
+    </script>
   </head>
   <body>
     <h1>Hello World XD</h1>
@@ -8,12 +11,13 @@
   </body>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script>
-    let looper = arrayOfObjects => {
-      arrayOfObjects.forEach(element => {
+    let looper = data => {
+      data.forEach(element => {
         $(
           `<div><h2> ${element.userName} </h2><p> ${element.text} </p></div>`
         ).appendTo("body");
       });
     };
+    looper(data);
   </script>
 </html>
