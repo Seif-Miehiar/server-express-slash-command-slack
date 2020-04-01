@@ -34,7 +34,7 @@ function sendMessageToSlackResponseURL(JSONmessage) {
     }
   });
 }
-app.post(
+app.get(
   "https://hooks.slack.com/commands/TU6783FFV/1041997001798/IliHvlMXCb7N7gxNmpiM7j9e",
   { "Content-type": "application/json" },
   {
