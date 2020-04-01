@@ -20,6 +20,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "index.html"));
   res.render("index.ejs", arrayOfLinks);
 });
+
 function sendMessageToSlackResponseURL(JSONmessage) {
   var postOptions = {
     uri:
@@ -59,6 +60,9 @@ app.post("/helloPost", (req, res) => {
 
   //   res.send("got a post request");
   res.send({ text: "you successfully sent a request" });
+  app.get("/", (req, res) => {
+    res.send(arrayOfLinks);
+  });
 });
 
 const port = process.env.PORT || 5000;
