@@ -14,17 +14,12 @@ app.use(bodyParser.json());
 
 app.use(compression());
 
-app.get("/", (err, req, res) => {
-  if (err) {
-    throw err;
-  }
+app.get("/", (req, res) => {
   console.log(req.body);
   res.sendFile(__dirname + "../client/index.html");
 });
 
-app.post("/helloPost", (err, req, res) => {
-  if (err) throw err;
-
+app.post("/helloPost", (req, res) => {
   let linkObject = {};
   linkObject["userName"] = req.body.user_name;
   linkObject["text"] = req.body.text;
