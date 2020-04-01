@@ -15,7 +15,6 @@ app.use(bodyParser.json());
 app.use(compression());
 
 app.get("/", (req, res) => {
-  console.log(req.body);
   res.sendFile(__dirname + "../client/index.html");
 });
 
