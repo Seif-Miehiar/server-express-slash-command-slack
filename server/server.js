@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(compression());
 
 app.get("/", (req, res) => {
-  res.sendFile("../client/index.html");
+  res.sendFile(path.join(__dirname + "/index.html"));
 });
 
 app.post("/helloPost", (req, res) => {
