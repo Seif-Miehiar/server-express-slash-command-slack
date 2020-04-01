@@ -29,7 +29,7 @@ app.post("/helloPost", (req, res) => {
 
   arrayOfLinks.push(linkObject);
 
-  console.log(linkObject, "\n", arrayOfLinks);
+  console.log(linkObject, "\n", arrayOfLinks, req.body);
 
   res.send("got a post request");
 });
