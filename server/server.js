@@ -17,6 +17,11 @@ app.use(compression());
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "index.html"));
+<<<<<<< HEAD
+=======
+  //   res.render("", { arrayOfLinks: arrayOfLinks });
+  //   res.render("index.ejs", arrayOfLinks);
+>>>>>>> 17a19a78d8eedee70fe5d62eebc23e589066fa8a
 });
 
 // function sendMessageToSlackResponseURL(JSONmessage) {
@@ -45,8 +50,14 @@ app.post("/helloPost", (req, res) => {
   linkObject["user_id"] = req.body.user_id;
 
   arrayOfLinks.push(linkObject);
+<<<<<<< HEAD
   console.log("ARRAY OF LINKS LINE 48", arrayOfLinks);
 
+=======
+
+  //   sendMessageToSlackResponseURL();
+  //   res.send("got a post request");
+>>>>>>> 17a19a78d8eedee70fe5d62eebc23e589066fa8a
   res.send({ text: "you successfully sent a request" });
 });
 
