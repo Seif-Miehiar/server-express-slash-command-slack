@@ -37,6 +37,7 @@ app.get("/", (req, res) => {
 // }
 
 app.post("/helloPost", (req, res) => {
+  console.log("REQ body", req.body);
   let linkObject = {};
 
   linkObject["userName"] = req.body.user_name;
