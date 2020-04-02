@@ -16,35 +16,26 @@ app.use(bodyParser.json());
 app.use(compression());
 
 app.get("/", (req, res) => {
-  //   res.sendFile(path.join(__dirname + "index.html"));
   res.sendFile(path.join(__dirname, "client", "index.html"));
-  res.render("", { arrayOfLinks: arrayOfLinks });
-  //   res.render("index.ejs", arrayOfLinks);
 });
 
-function sendMessageToSlackResponseURL(JSONmessage) {
-  var postOptions = {
-    uri:
-      "https://hooks.slack.com/commands/TU6783FFV/1041997001798/IliHvlMXCb7N7gxNmpiM7j9e",
-    method: "POST",
-    headers: {
-      "Content-type": "application/json"
-    },
-    json: {}
-  };
-  request(postOptions, (error, response, body) => {
-    if (error) {
-      // handle errors as you see fit
-    }
-  });
-}
-// app.post(
-//   "https://hooks.slack.com/commands/TU6783FFV/1041997001798/IliHvlMXCb7N7gxNmpiM7j9e",
-//   { "Content-type": "application/json" },
-//   (req, res) => {
-//     res.send({ text: "you successfully sent a request" });
-//   }
-// );
+// function sendMessageToSlackResponseURL(JSONmessage) {
+//   var postOptions = {
+//     uri:
+//       "https://hooks.slack.com/commands/TU6783FFV/1041997001798/IliHvlMXCb7N7gxNmpiM7j9e",
+//     method: "POST",
+//     headers: {
+//       "Content-type": "application/json"
+//     },
+//     json: {}
+//   };
+//   request(postOptions, (error, response, body) => {
+//     if (error) {
+//       // handle errors as you see fit
+//     }
+//   });
+// }
+
 app.post("/helloPost", (req, res) => {
   let linkObject = {};
 
@@ -54,15 +45,9 @@ app.post("/helloPost", (req, res) => {
   linkObject["user_id"] = req.body.user_id;
 
   arrayOfLinks.push(linkObject);
-  app.get("/", (req, res) => {
-    res.redirect(arrayOfLinks);
-  });
-  //   sendMessageToSlackResponseURL();
-  //   res.send("got a post request");
+  console.log("ARRAY OF LINKS LINE 48", arrayOfLinks);
+
   res.send({ text: "you successfully sent a request" });
-  //   app.get("/", (req, res) => {
-  //     res.send(arrayOfLinks);
-  //   });
 });
 
 const port = process.env.PORT || 5000;
