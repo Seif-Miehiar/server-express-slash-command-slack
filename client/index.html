@@ -1,9 +1,9 @@
 <html>
   <head>
     <title>server-slash-command</title>
-    <script>
+    <!-- <script>
       var data = `<%= arrayOfLinks %>`;
-    </script>
+    </script> -->
   </head>
   <body>
     <h1>Hello World XD</h1>
@@ -12,7 +12,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script>
     function looper() {
-      data.forEach(element => {
+      arrayOfLinks.forEach(element => {
         $(
           `<div><h2> ${element.userName} </h2><p> ${element.text} </p></div>`
         ).appendTo("body");
