@@ -11,10 +11,12 @@
   </body>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script>
-    data.forEach(element => {
-      $(
-        `<div><h2> ${element.userName} </h2><p> ${element.text} </p></div>`
-      ).appendTo("body");
-    });
+    function looper() {
+      data.forEach(element => {
+        $(
+          `<div><h2> ${element.userName} </h2><p> ${element.text} </p></div>`
+        ).appendTo("body");
+      });
+    }
   </script>
 </html>
