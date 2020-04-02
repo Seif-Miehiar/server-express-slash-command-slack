@@ -18,7 +18,7 @@ app.use(compression());
 app.get("/", (req, res) => {
   //   res.sendFile(path.join(__dirname + "index.html"));
   res.sendFile(
-    path.join(__dirname, "client", "index.html", { data: arrayOfLinks })
+    path.join(__dirname, "client", "index.html", { arrayOfLinks: arrayOfLinks })
   );
   //   res.render("index.ejs", arrayOfLinks);
 });
