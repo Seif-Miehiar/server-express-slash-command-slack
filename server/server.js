@@ -46,7 +46,6 @@ function sendMessageToSlackResponseURL(JSONmessage) {
 //   }
 // );
 app.post("/helloPost", (req, res) => {
-  var res1 = res;
   let linkObject = {};
 
   linkObject["userName"] = req.body.user_name;
@@ -56,11 +55,9 @@ app.post("/helloPost", (req, res) => {
 
   arrayOfLinks.push(linkObject);
   app.get("/", (req, res) => {
-    res1.redirect(arrayOfLinks);
+    res.redirect(arrayOfLinks);
   });
-
   //   sendMessageToSlackResponseURL();
-
   //   res.send("got a post request");
   res.send({ text: "you successfully sent a request" });
   //   app.get("/", (req, res) => {
