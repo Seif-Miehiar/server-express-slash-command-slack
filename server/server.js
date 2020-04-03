@@ -23,23 +23,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "../dist/client/src/index.html"));
 });
 
-// function sendMessageToSlackResponseURL(JSONmessage) {
-//   var postOptions = {
-//     uri:
-//       "https://hooks.slack.com/commands/TU6783FFV/1041997001798/IliHvlMXCb7N7gxNmpiM7j9e",
-//     method: "POST",
-//     headers: {
-//       "Content-type": "application/json"
-//     },
-//     json: {}
-//   };
-//   request(postOptions, (error, response, body) => {
-//     if (error) {
-//       // handle errors as you see fit
-//     }
-//   });
-// }
-
 app.post("/helloPost", (req, res) => {
   console.log("REQ body", req.body);
   let user = req.body.user_name;
@@ -55,18 +38,13 @@ app.post("/helloPost", (req, res) => {
   linkObject["user_id"] = userId;
 
   for (let i = 0; i < arrayOfLinks; i++) {
-    if (arrayOfLinks[i]["userName"] === user) {
-      arrayOfLinks[i]["text"] = text;
+    let obj = arrayOfLinks[i];
+    if (obj.userName === user) {
+      obj.text = text;
+    } else {
+      arrayOfLinks.push(linkObject);
     }
-    arrayOfLinks.push(linkObject);
   }
-  // if (!arrayOfLinks.includes(linkObject["userName"])) {
-  //   arrayOfLinks.push(linkObject);
-  // } else {
-  //   arrayOfLinks.forEach((element) => {
-  //     element["text"] = text;
-  //   });
-  // }
 
   console.log("ARRAY OF LINKS LINE 48", arrayOfLinks);
 
@@ -74,6 +52,7 @@ app.post("/helloPost", (req, res) => {
 });
 
 app.get("/all", (req, res) => {
+  console.log("/all API --------", arrayOfLinks);
   res.send(arrayOfLinks);
 });
 
@@ -82,5 +61,3 @@ const port = process.env.PORT || 5000;
 app.listen(port, function () {
   console.log(`listening to ${port}`);
 });
-
-//sdsds
