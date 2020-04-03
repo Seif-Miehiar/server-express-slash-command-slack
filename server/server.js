@@ -20,7 +20,7 @@ app.use(cors());
 
 app.use(compression());
 
-app.get("/*", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "../dist/client/src/index.html"));
 });
 
