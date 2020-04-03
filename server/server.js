@@ -28,23 +28,7 @@ app.post("/helloPost", (req, res) => {
   console.log("REQ body", linkObject.text);
 
   users[linkObject.user_name] = linkObject;
-  // for (let i = 0; i < arrayOfLinks; i++) {
-  //   console.log(obj);
-  //   if (arrayOfLinks.length === 0) {
-  //     arrayOfLinks.push(linkObject);
-  //   }
-
-  //   let obj = arrayOfLinks[i];
-  //   if (obj.userName === user) {
-  //     obj.text = text;
-  //     break;
-  //   }
-  // }
-  // arrayOfLinks.push(linkObject);
-
-  // console.log("ARRAY OF LINKS LINE 48", arrayOfLinks);
-
-  res.send(users);
+  res.send("Thank you for shareing your Zoom link with us, HaPPy HaCkinG :D");
 });
 
 app.get("/all", (req, res) => {
