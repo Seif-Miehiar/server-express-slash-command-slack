@@ -57,9 +57,8 @@ app.post("/helloPost", (req, res) => {
   for (let i = 0; i < arrayOfLinks; i++) {
     if (arrayOfLinks[i]["userName"] === user) {
       arrayOfLinks[i]["text"] = text;
-    } else {
-      arrayOfLinks.push(linkObject);
     }
+    arrayOfLinks.push(linkObject);
   }
   // if (!arrayOfLinks.includes(linkObject["userName"])) {
   //   arrayOfLinks.push(linkObject);
