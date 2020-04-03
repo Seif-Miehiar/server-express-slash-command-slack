@@ -58,7 +58,9 @@ app.post("/helloPost", (req, res) => {
     arrayOfLinks.push(linkObject);
   } else {
     arrayOfLinks.forEach((element) => {
-      element["text"] = text;
+      element["userName"] === user
+        ? (element["text"] = text)
+        : arrayOfLinks.push(linkObject);
     });
   }
 
