@@ -1,3 +1,4 @@
+<app-nav-bar></app-nav-bar>
 <div *ngFor="let student of data">
-  {{ student.userName }}
+  <app-one-student [student]="student"></app-one-student>
 </div>

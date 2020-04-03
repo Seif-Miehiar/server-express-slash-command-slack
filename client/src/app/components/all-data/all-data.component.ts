@@ -13,7 +13,6 @@ export class AllDataComponent implements OnInit {
 
   ngOnInit() {
     this._http.getData().subscribe((comingData: any) => {
-      console.log('the DAAAAATAAAA', comingData);
       this.data = comingData;
     });
   }
