@@ -8,6 +8,8 @@ export class ServerService {
   constructor(private _http: HttpClient) {}
 
   getData() {
-    return this._http.get('http://localhost:5000/all');
+    return this._http.get(
+      'https://server-slash-command-slack.herokuapp.com/all'
+    );
   }
 }

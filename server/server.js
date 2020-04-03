@@ -3,6 +3,7 @@ const app = express();
 var compression = require("compression");
 var bodyParser = require("body-parser");
 var path = require("path");
+var cors = require("cors");
 
 let arrayOfLinks = [];
 
@@ -12,6 +13,7 @@ const botUserOAuthAccessToken =
 app.use(express.static("client"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(compression());
 
