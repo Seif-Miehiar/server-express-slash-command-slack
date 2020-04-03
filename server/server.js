@@ -43,14 +43,26 @@ app.get("/", (req, res) => {
 
 app.post("/helloPost", (req, res) => {
   console.log("REQ body", req.body);
+  let user = req.body.user_name;
+  let text = req.body.text;
+  let command = req.body.command;
+  let userId = req.body.user_id;
+
   let linkObject = {};
 
-  linkObject["userName"] = req.body.user_name;
-  linkObject["text"] = req.body.text;
-  linkObject["command"] = req.body.command;
-  linkObject["user_id"] = req.body.user_id;
+  linkObject["userName"] = user;
+  linkObject["text"] = text;
+  linkObject["command"] = command;
+  linkObject["user_id"] = userId;
 
-  arrayOfLinks.push(linkObject);
+  if (!arrayOfLinks.includes(linkObject["userName"])) {
+    arrayOfLinks.push(linkObject);
+  } else {
+    arrayOfLinks.forEach((element) => {
+      element["text"] = text;
+    });
+  }
+
   console.log("ARRAY OF LINKS LINE 48", arrayOfLinks);
 
   res.send({ text: "you successfully sent a request" });

@@ -8,7 +8,6 @@ export class ServerService {
   constructor(private _http: HttpClient) {}
 
   getData() {
-    console.log(this);
     return this._http.get(
       'https://server-slash-command-slack.herokuapp.com/all'
     );
