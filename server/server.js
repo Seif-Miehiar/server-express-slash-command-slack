@@ -49,20 +49,18 @@ app.post("/helloPost", (req, res) => {
 
   let linkObject = {};
 
-  linkObject["userName"] = user;
-  linkObject["text"] = text;
-  linkObject["command"] = command;
-  linkObject["user_id"] = userId;
+  linkObject.userName = user;
+  linkObject.text = text;
+  linkObject.command = command;
+  linkObject.userId = userId;
 
-  if (!arrayOfLinks.includes(linkObject["userName"])) {
-    arrayOfLinks.push(linkObject);
-  } else {
-    arrayOfLinks.forEach((element) => {
-      if (element["userName"] === user) {
-        element["text"] = text;
-      }
-    });
-  }
+  arrayOfLinks.forEach((element) => {
+    if (element.userName === user) {
+      element.text = text;
+    } else {
+      arrayOfLinks.push(linkObject);
+    }
+  });
 
   console.log("ARRAY OF LINKS LINE 48", arrayOfLinks);
 
