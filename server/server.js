@@ -48,8 +48,11 @@ app.post("/helloPost", (req, res) => {
 });
 
 app.get("/all", (req, res) => {
-  console.log("/all API --------", arrayOfLinks);
-  res.send(arrayOfLinks);
+  const arr = [];
+  for (const key in users) {
+    arr.push(users[key]);
+  }
+  res.send(arr);
 });
 
 const port = process.env.PORT || 5000;
