@@ -49,14 +49,14 @@ app.post("/helloPost", (req, res) => {
 
   let linkObject = {};
 
-  linkObject.userName = user;
-  linkObject.text = text;
-  linkObject.command = command;
-  linkObject.userId = userId;
+  linkObject["userName"] = user;
+  linkObject["text"] = text;
+  linkObject["command"] = command;
+  linkObject["user_id"] = userId;
 
   arrayOfLinks.forEach((element) => {
-    if (element.userName === user) {
-      element.text = text;
+    if (element["userName"] === user) {
+      element["text"] = text;
     } else {
       arrayOfLinks.push(linkObject);
     }
