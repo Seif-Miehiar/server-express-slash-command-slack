@@ -55,10 +55,17 @@ app.post("/helloPost", (req, res) => {
   linkObject["user_id"] = userId;
 
   arrayOfLinks.forEach((element) => {
+    console.log("element['userName']", element["userName"], user);
+    console.log("element['Text']", element["text"], text);
     if (element["userName"] === user) {
+      console.log("INSIDE IF", element["userName"], user);
+      console.log("element['Text']", element["text"], text);
       element["text"] = text;
+      console.log("element['Text'] AFTER THE UPDATE", element["text"], text);
     } else {
+      console.log("ARRAY IN THE ELSE", arrayOfLinks);
       arrayOfLinks.push(linkObject);
+      console.log("ARRAY IN THE ELSE AFTER PUSH", arrayOfLinks);
     }
   });
 
