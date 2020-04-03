@@ -52,7 +52,7 @@ app.post("/helloPost", (req, res) => {
 });
 
 app.get("/all", (req, res) => {
-  res.send(arrayOfLinks);
+  res.send({ arrayOfLinks: arrayOfLinks });
 });
 
 const port = process.env.PORT || 5000;
