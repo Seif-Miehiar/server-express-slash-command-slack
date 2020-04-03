@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "../dist/client/src/index.html"));
 });
 
-app.post("/ozil", (req, res) => {
+app.post("/helloPost", (req, res) => {
   let linkObject = Object.assign(req.body);
   console.log("REQ body", linkObject.text);
 
