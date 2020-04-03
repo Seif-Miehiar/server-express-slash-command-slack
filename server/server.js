@@ -55,13 +55,20 @@ app.post("/helloPost", (req, res) => {
   linkObject["command"] = command;
   linkObject["user_id"] = userId;
 
-  if (!arrayOfLinks.includes(linkObject["userName"])) {
-    arrayOfLinks.push(linkObject);
-  } else {
-    arrayOfLinks.forEach((element) => {
-      element["text"] = text;
-    });
+  for (let i = 0; i < arrayOfLinks; i++) {
+    if (arrayOfLinks[i]["userName"] === user) {
+      arrayOfLinks[i]["text"] = text;
+    } else {
+      arrayOfLinks.push(linkObject);
+    }
   }
+  // if (!arrayOfLinks.includes(linkObject["userName"])) {
+  //   arrayOfLinks.push(linkObject);
+  // } else {
+  //   arrayOfLinks.forEach((element) => {
+  //     element["text"] = text;
+  //   });
+  // }
 
   console.log("ARRAY OF LINKS LINE 48", arrayOfLinks);
 
