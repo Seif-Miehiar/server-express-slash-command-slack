@@ -10,7 +10,7 @@ let arrayOfLinks = [];
 const botUserOAuthAccessToken =
   "xoxb-958246117539-1025544532499-BmE8Kz7ALXFt9XnD5VVetDsK";
 
-app.use(express.static(__dirname + "/client/dist/client"));
+app.use(express.static(__dirname + "/../client/dist/client"));
 // console.log("PPPPPAAAAAATHHHHHHH", __dirname + "/client/dist/client");
 
 app.use(express.static("client"));
