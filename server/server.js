@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var path = require("path");
 var cors = require("cors");
 
-let arrayOfLinks = [];
+let users = {};
 
 const botUserOAuthAccessToken =
   "xoxb-958246117539-1025544532499-BmE8Kz7ALXFt9XnD5VVetDsK";
@@ -23,31 +23,28 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "../dist/client/src/index.html"));
 });
 
-app.post("/helloPost", (req, res) => {
-  console.log("REQ body", req.body);
-  let user = req.body.user_name;
-  let text = req.body.text;
-  let command = req.body.command;
-  let userId = req.body.user_id;
+app.post("/ozil", (req, res) => {
+  let linkObject = Object.assign(req.body);
+  console.log("REQ body", linkObject.text);
 
-  let linkObject = {};
+  users[linkObject.user_name] = linkObject;
+  // for (let i = 0; i < arrayOfLinks; i++) {
+  //   console.log(obj);
+  //   if (arrayOfLinks.length === 0) {
+  //     arrayOfLinks.push(linkObject);
+  //   }
 
-  linkObject["userName"] = user;
-  linkObject["text"] = text;
-  linkObject["command"] = command;
-  linkObject["user_id"] = userId;
+  //   let obj = arrayOfLinks[i];
+  //   if (obj.userName === user) {
+  //     obj.text = text;
+  //     break;
+  //   }
+  // }
+  // arrayOfLinks.push(linkObject);
 
-  for (let i = 0; i < arrayOfLinks; i++) {
-    let obj = arrayOfLinks[i];
-    if (obj.userName === user) {
-      obj.text = text;
-    }
-  }
-  arrayOfLinks.push(linkObject);
+  // console.log("ARRAY OF LINKS LINE 48", arrayOfLinks);
 
-  console.log("ARRAY OF LINKS LINE 48", arrayOfLinks);
-
-  res.send({ text: "you successfully sent a request" });
+  res.send(users);
 });
 
 app.get("/all", (req, res) => {
