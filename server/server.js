@@ -41,10 +41,9 @@ app.post("/helloPost", (req, res) => {
     let obj = arrayOfLinks[i];
     if (obj.userName === user) {
       obj.text = text;
-    } else {
-      arrayOfLinks.push(linkObject);
     }
   }
+  arrayOfLinks.push(linkObject);
 
   console.log("ARRAY OF LINKS LINE 48", arrayOfLinks);
 
