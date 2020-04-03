@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(compression());
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "index.html"));
+  res.sendFile(path.join(__dirname, "../client/dist/client/index.html"));
 });
 
 // function sendMessageToSlackResponseURL(JSONmessage) {
@@ -49,6 +49,10 @@ app.post("/helloPost", (req, res) => {
   console.log("ARRAY OF LINKS LINE 48", arrayOfLinks);
 
   res.send({ text: "you successfully sent a request" });
+});
+
+app.get("/all", (req, res) => {
+  res.send(arrayOfLinks);
 });
 
 const port = process.env.PORT || 5000;
