@@ -7,9 +7,16 @@ import { AppComponent } from './app.component';
 import { AllDataComponent } from './components/all-data/all-data.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { OneStudentComponent } from './components/one-student/one-student.component';
+import { ReversePipe } from './pipes/reverse.pipe';
 
 @NgModule({
-  declarations: [AppComponent, AllDataComponent, NavBarComponent, OneStudentComponent],
+  declarations: [
+    AppComponent,
+    AllDataComponent,
+    NavBarComponent,
+    OneStudentComponent,
+    ReversePipe
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
