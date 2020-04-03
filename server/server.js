@@ -11,7 +11,6 @@ const botUserOAuthAccessToken =
   "xoxb-958246117539-1025544532499-BmE8Kz7ALXFt9XnD5VVetDsK";
 
 app.use(express.static(__dirname + "/../client/dist/client"));
-// console.log("PPPPPAAAAAATHHHHHHH", __dirname + "/client/dist/client");
 
 app.use(express.static("client"));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -55,6 +54,7 @@ app.post("/helloPost", (req, res) => {
   linkObject["command"] = command;
   linkObject["user_id"] = userId;
 
+<<<<<<< HEAD
   for (let i = 0; i < arrayOfLinks; i++) {
     if (arrayOfLinks[i]["userName"] === user) {
       arrayOfLinks[i]["text"] = text;
@@ -69,6 +69,22 @@ app.post("/helloPost", (req, res) => {
   //     element["text"] = text;
   //   });
   // }
+=======
+  arrayOfLinks.forEach((element) => {
+    console.log("element['userName']", element["userName"], user);
+    console.log("element['Text']", element["text"], text);
+    if (element["userName"] === user) {
+      console.log("INSIDE IF", element["userName"], user);
+      console.log("element['Text']", element["text"], text);
+      element["text"] = text;
+      console.log("element['Text'] AFTER THE UPDATE", element["text"], text);
+    } else {
+      console.log("ARRAY IN THE ELSE", arrayOfLinks);
+      arrayOfLinks.push(linkObject);
+      console.log("ARRAY IN THE ELSE AFTER PUSH", arrayOfLinks);
+    }
+  });
+>>>>>>> 28d8ac4032240d2f87820d5f3e3ffd073a13cf4d
 
   console.log("ARRAY OF LINKS LINE 48", arrayOfLinks);
 
