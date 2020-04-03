@@ -10,7 +10,7 @@ let arrayOfLinks = [];
 const botUserOAuthAccessToken =
   "xoxb-958246117539-1025544532499-BmE8Kz7ALXFt9XnD5VVetDsK";
 
-app.use(express.static(__dirname + "dist/client"));
+app.use(express.static(__dirname + "../dist/client"));
 // console.log("PPPPPAAAAAATHHHHHHH", __dirname + "/client/dist/client");
 
 app.use(express.static("client"));
@@ -21,7 +21,7 @@ app.use(cors());
 app.use(compression());
 
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname + "dist/client/src/index.html"));
+  res.sendFile(path.join(__dirname + "../dist/client/src/index.html"));
 });
 
 // function sendMessageToSlackResponseURL(JSONmessage) {
