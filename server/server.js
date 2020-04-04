@@ -41,21 +41,19 @@ app.get("/", (req, res) => {
 // }
 
 app.post("/helloPost", (req, res) => {
-  console.log("REQ body", req.body);
-  let linkObject = {};
+  let linkObject = Object.assign(req.body);
+  console.log("REQ body", linkObject.text);
 
-  linkObject["userName"] = req.body.user_name;
-  linkObject["text"] = req.body.text;
-  linkObject["command"] = req.body.command;
-  linkObject["user_id"] = req.body.user_id;
-
-  arrayOfLinks.push(linkObject);
-
-  res.send({ text: "you successfully sent a request" });
+  users[linkObject.user_name] = linkObject;
+  res.send("Thank you for sharing your Zoom link with us, HaPpY HaCkinG :D");
 });
 
 app.get("/all", (req, res) => {
-  res.send(arrayOfLinks);
+  const arr = [];
+  for (const key in users) {
+    arr.push(users[key]);
+  }
+  res.send(arr);
 });
 
 const port = process.env.PORT || 5000;
