@@ -45,7 +45,7 @@ app.post("/helloPost", (req, res) => {
   console.log("REQ body", linkObject.text);
 
   users[linkObject.user_name] = linkObject;
-  res.send("Thank you for sharing your Zoom link with us, HaPpY HaCkinG :D");
+  res.send("Thank you for shareing your Zoom link with us, HaPPy HaCkinG :D");
 });
 
 app.get("/all", (req, res) => {
