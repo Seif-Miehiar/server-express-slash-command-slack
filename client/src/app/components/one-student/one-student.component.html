@@ -1,7 +1,11 @@
 <div class="container">
   <div id="data">
-    <div id="username">User Name: {{ student.user_name }}</div>
-    <div id="text">Pair: {{ student.pair }}</div>
-    <div id="text">Zoom: {{ student.zoomLink }}</div>
+    <div id="username">{{ student.user_name }}</div>
+    <div id="pair">{{ student.pair }}</div>
+    <button id="zoom">
+      <a href="zoomLink">
+        click here!!
+      </a>
+    </button>
   </div>
 </div>
