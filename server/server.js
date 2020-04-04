@@ -5,41 +5,62 @@ var bodyParser = require("body-parser");
 var path = require("path");
 var cors = require("cors");
 
-let users = {};
+let arrayOfLinks = [];
 
 const botUserOAuthAccessToken =
   "xoxb-958246117539-1025544532499-BmE8Kz7ALXFt9XnD5VVetDsK";
 
 app.use(express.static(__dirname + "../dist/client"));
+// console.log("PPPPPAAAAAATHHHHHHH", __dirname + "/client/dist/client");
+
 app.use(express.static("client"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
+
 app.use(compression());
 
-// merge the front with the back
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "../dist/client/src/index.html"));
 });
 
-// post from Slack
+// function sendMessageToSlackResponseURL(JSONmessage) {
+//   var postOptions = {
+//     uri:
+//       "https://hooks.slack.com/commands/TU6783FFV/1041997001798/IliHvlMXCb7N7gxNmpiM7j9e",
+//     method: "POST",
+//     headers: {
+//       "Content-type": "application/json"
+//     },
+//     json: {}
+//   };
+//   request(postOptions, (error, response, body) => {
+//     if (error) {
+//       // handle errors as you see fit
+//     }
+//   });
+// }
+
 app.post("/helloPost", (req, res) => {
-  let linkObject = Object.assign(req.body);
-  users[linkObject.user_name] = linkObject;
-  console.log("LINK OBJ", linkObject);
-  res.send("Thank you for sharing your Zoom link with us, HaPpY HaCkiNg :D");
+  console.log("REQ body", req.body);
+  let linkObject = {};
+
+  linkObject["userName"] = req.body.user_name;
+  linkObject["text"] = req.body.text;
+  linkObject["command"] = req.body.command;
+  linkObject["user_id"] = req.body.user_id;
+
+  arrayOfLinks.push(linkObject);
+
+  res.send({ text: "you successfully sent a request" });
 });
 
-// getting all the data
 app.get("/all", (req, res) => {
-  const arr = [];
-  for (const key in users) {
-    arr.push(users[key]);
-  }
-  res.send(arr);
+  res.send(arrayOfLinks);
 });
 
 const port = process.env.PORT || 5000;
+
 app.listen(port, function () {
   console.log(`listening to ${port}`);
 });
