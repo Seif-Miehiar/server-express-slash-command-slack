@@ -24,11 +24,17 @@ app.get("/", (req, res) => {
 });
 
 app.post("/helloPost", (req, res) => {
+  // console.log("hi");
   let linkObject = Object.assign(req.body);
   console.log("REQ body", linkObject.text);
+  linkObject["text"] = linkObject["text"].split(",");
+  linkObject["pair"] = linkObject["text"][0];
+  linkObject["zoomLink"] = linkObject["text"][1];
 
   users[linkObject.user_name] = linkObject;
-  res.send("Thank you for shareing your Zoom link with us, HaPPy HaCkinG :D");
+  console.log("USERS", users);
+
+  res.send("Thank you for sharing your Zoom link with us, HaPPy HaCkinG :D");
 });
 
 app.get("/all", (req, res) => {
