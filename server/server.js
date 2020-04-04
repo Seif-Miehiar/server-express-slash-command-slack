@@ -24,6 +24,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/helloPost", (req, res) => {
+  // console.log("hi");
   let linkObject = Object.assign(req.body);
 
   linkObject["text"] = linkObject["text"].split(",");
