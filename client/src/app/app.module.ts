@@ -8,6 +8,7 @@ import { AllDataComponent } from './components/all-data/all-data.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { OneStudentComponent } from './components/one-student/one-student.component';
 import { ReversePipe } from './pipes/reverse.pipe';
+import { SafeLinksPipe } from './pipes/safe-links.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ReversePipe } from './pipes/reverse.pipe';
     AllDataComponent,
     NavBarComponent,
     OneStudentComponent,
-    ReversePipe
+    ReversePipe,
+    SafeLinksPipe
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

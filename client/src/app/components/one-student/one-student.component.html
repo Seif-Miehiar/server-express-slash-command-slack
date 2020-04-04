@@ -2,10 +2,8 @@
   <div id="data">
     <div id="username">{{ student.user_name }}</div>
     <div id="pair">{{ student.pair }}</div>
-    <button id="zoom">
-      <a href="{{ student.zoomLink }}">
-        click here!!
-      </a>
+    <button id="zoom" (click)="zoomLink()">
+      open zoom
     </button>
   </div>
 </div>
