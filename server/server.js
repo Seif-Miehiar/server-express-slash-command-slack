@@ -41,10 +41,8 @@ app.post("/helloPost", (req, res) => {
     .send("Thank you for sharing your Zoom link with us, HaPPy HaCkinG :D");
 });
 
-app.get(
-  "/all",
-  (req, res) => res.send(users)
-  // res.status(202).send(Object.keys(users).map((user_name) => users[user_name]))
+app.get("/all", (req, res) =>
+  res.status(202).send(Object.keys(users).map((user_name) => users[user_name]))
 );
 
 app.delete("/delete/id/:id", (req, res) => {
