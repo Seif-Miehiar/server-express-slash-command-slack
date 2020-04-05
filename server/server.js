@@ -23,6 +23,11 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "../dist/client/src/index.html"));
 });
 
+app.get("/deleteAll", (req, res) => {
+  users = {};
+  res.status(202).send(Object.keys(users).map((user_name) => users[user_name]));
+});
+
 app.post("/helloPost", (req, res) => {
   let arr = req.body.text.split(",") || req.body.text.split(" ");
   users[req.body.user_name] = {

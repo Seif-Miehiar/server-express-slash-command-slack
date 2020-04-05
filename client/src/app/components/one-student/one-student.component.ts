@@ -40,7 +40,7 @@ export class OneStudentComponent implements OnInit {
       })
       .then(() =>
         this._http.post(
-          `https://server-slash-command-slack.herokuapp.com/delete/${id}`,
+          `https://server-slash-command-slack.herokuapp.com/delete/id/${id}`,
           {}
         )
       );
