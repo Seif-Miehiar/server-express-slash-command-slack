@@ -1,6 +1,8 @@
 <app-nav-bar></app-nav-bar>
 <div id="allData">
-  <div *ngFor="let student of data | reverse">
-    <app-one-student [student]="student"></app-one-student>
+  <div class="row">
+    <div class="col-4" *ngFor="let student of data | reverse">
+      <app-one-student [student]="student"></app-one-student>
+    </div>
   </div>
 </div>
