@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "../dist/client/src/index.html"));
 });
 
-app.get("/deleteAll", (req, res) => {
+app.delete("/deleteAll", (req, res) => {
   users = {};
   res.status(202).send(Object.keys(users).map((user_name) => users[user_name]));
 });
@@ -41,11 +41,14 @@ app.post("/helloPost", (req, res) => {
     .send("Thank you for sharing your Zoom link with us, HaPPy HaCkinG :D");
 });
 
-app.get("/all", (req, res) =>
-  res.status(202).send(Object.keys(users).map((user_name) => users[user_name]))
+app.get(
+  "/all",
+  (req, res) => res.send(users)
+  // res.status(202).send(Object.keys(users).map((user_name) => users[user_name]))
 );
 
 app.delete("/delete/id/:id", (req, res) => {
+  console.log("hello");
   let length = Object.keys(users).length;
 
   users = Object.keys(users).reduce((acc, user) => {
@@ -63,7 +66,7 @@ app.delete("/delete/name/:name", (req, res) => {
   return res.status(202).send(users);
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, function () {
   console.log(`☠☠ listening to ${PORT} ☠☠`);

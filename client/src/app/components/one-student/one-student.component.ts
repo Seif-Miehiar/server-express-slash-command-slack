@@ -38,11 +38,13 @@ export class OneStudentComponent implements OnInit {
           });
         }
       })
-      .then(() =>
-        this._http.post(
-          `https://server-slash-command-slack.herokuapp.com/delete/id/${id}`,
-          {}
-        )
-      );
+      .then(() => {
+        this._http.delete(
+          `https://server-slash-command-slack.herokuapp.com/delete/id/${id}`
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 }

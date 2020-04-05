@@ -41,7 +41,7 @@ export class AllDataComponent implements OnInit {
         }
       })
       .then(() =>
-        this.http.post(
+        this.http.delete(
           'https://server-slash-command-slack.herokuapp.com/deleteAll',
           {}
         )
