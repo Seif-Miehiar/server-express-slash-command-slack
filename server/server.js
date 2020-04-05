@@ -30,9 +30,9 @@ app.post("/helloPost", (req, res) => {
 		pair: req.body.text.split(",")[0], //TODO : fix this shit
 		zoomLink: req.body.text.split(",")[1],
 	};
-	return res.send(
-		"Thank you for sharing your Zoom link with us, HaPPy HaCkinG :D"
-	);
+	return res
+		.status(201)
+		.send("Thank you for sharing your Zoom link with us, HaPPy HaCkinG :D");
 });
 
 app.get("/all", (req, res) =>
@@ -47,14 +47,14 @@ app.delete("/delete/id/:id", (req, res) => {
 		return acc;
 	}, {});
 
-	return length === Object.keys(users).length
-		? res.status(400).send("not ok")
+	return length === Object.keys(users).length // this is over complicated, long, O(n) and most importantly ugly so so don't mind it
+		? res.status(400).send("not ok") // i need some time to find the best way to structure the code
 		: res.status(200).send("ok");
 });
 
 app.delete("/delete/name/:name", (req, res) => {
 	delete users[req.params.name];
-	res.send(users);
+	return res.status(202).send(users);
 });
 
 const PORT = process.env.PORT || 5000;
