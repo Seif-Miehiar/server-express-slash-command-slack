@@ -19,6 +19,7 @@
     "mocha": "^7.1.1"
   },
   "scripts": {
+    "prepublish": "mocha",
     "start": "mocha ./server/main/mainTest.js && nodemon server/server.js",
     "test": "mocha ./server/main/mainTest.js"
   },
