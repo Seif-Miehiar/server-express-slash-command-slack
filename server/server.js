@@ -45,7 +45,7 @@ app.get("/all", (req, res) =>
   res.status(202).send(Object.keys(users).map((user_name) => users[user_name]))
 );
 
-app.delete("/delete/id/:id", (req, res) => {
+app.post("/delete/id/:id", (req, res) => {
   console.log("hello");
   let length = Object.keys(users).length;
 
@@ -59,12 +59,12 @@ app.delete("/delete/id/:id", (req, res) => {
     : res.status(200).send("ok");
 });
 
-app.delete("/delete/name/:name", (req, res) => {
+app.post("/delete/name/:name", (req, res) => {
   delete users[req.params.name];
   return res.status(202).send(users);
 });
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, function () {
   console.log(`☠☠ listening to ${PORT} ☠☠`);
