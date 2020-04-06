@@ -101,7 +101,7 @@
 
 - **URL**
 
-  <_/delete/all_>
+  <_/deleteAll_>
 
 - **description**
 

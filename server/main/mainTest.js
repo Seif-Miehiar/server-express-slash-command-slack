@@ -18,10 +18,11 @@ describe("#main()", function () {
 		main = new Main();
 	});
 
-	it('should have methods named "addTable", "retriveTable", and "removeTable', function () {
+	it('should have methods named "addTable", "retriveTable" "removeTableByName" , and "removeTableById"', function () {
 		expect(main.addTable).to.be.a("function");
 		expect(main.retriveTable).to.be.a("function");
-		expect(main.removeTable).to.be.a("function");
+		expect(main.removeTableById).to.be.a("function");
+		expect(main.removeTableByName).to.be.a("function");
 		expect(main.emptyStudents).to.be.a("function");
 	});
 	it("should start with an empty array of students", function () {
@@ -35,11 +36,13 @@ describe("#main()", function () {
 			{
 				pair1: "seif",
 				pair2: "mohameddhia",
+				user_id: "119922883377",
 				zoomLink: "zoomLinkRightHere",
 			},
 			{
 				pair1: "jihad",
 				pair2: "hachem",
+				user_id: "11111q4d5465",
 				zoomLink: "zoomLinkRightHere",
 			},
 		]);
@@ -49,29 +52,39 @@ describe("#main()", function () {
 		expect(main.retriveTable("seif")).to.eql({
 			pair1: "seif",
 			pair2: "mohameddhia",
+			user_id: "119922883377",
 			zoomLink: "zoomLinkRightHere",
 		});
 		expect(main.retriveTable("mohameddhia")).to.eql({
 			pair1: "seif",
 			pair2: "mohameddhia",
+			user_id: "119922883377",
 			zoomLink: "zoomLinkRightHere",
 		});
 		expect(main.retriveTable("jihad")).to.equal(undefined);
 	});
-	it("should delete a table", function () {
+	it("should delete a table by name", function () {
 		main.addTable(seifsTable);
 		main.addTable(jihadsTable);
-		main.removeTable("seif");
+		main.removeTableByName("seif");
 		expect(main.retriveTable("seif")).to.equal(undefined);
 		expect(main.retriveTable("mohameddhia")).to.equal(undefined);
 		expect(main.retriveTable("jihad")).to.eql({
 			pair1: "jihad",
 			pair2: "hachem",
+			user_id: "11111q4d5465",
 			zoomLink: "zoomLinkRightHere",
 		});
 
-		main.removeTable("hachem");
-		expect(main.removeTable("jihad")).to.equal(undefined);
+		main.removeTableByName("hachem");
+		expect(main.removeTableByName("jihad")).to.equal(undefined);
+	});
+
+	it("should delete a table by Id", function () {
+		main.addTable(seifsTable);
+		main.removeTableById("119922883377");
+		expect(main.retriveTable("seif")).to.equal(undefined);
+		expect(main.retriveTable("mohameddhia")).to.equal(undefined);
 	});
 
 	it("should replace an already existing pair", function () {
@@ -85,12 +98,14 @@ describe("#main()", function () {
 		expect(main.retriveTable("seif")).to.eql({
 			pair1: "seif",
 			pair2: "hachem",
+			user_id: "119922883377",
 			zoomLink: "zoomLinkRightHere",
 		});
 		main.addTable(jihadsTable);
 		expect(main.retriveTable("hachem")).to.eql({
 			pair1: "jihad",
 			pair2: "hachem",
+			user_id: "11111q4d5465",
 			zoomLink: "zoomLinkRightHere",
 		});
 	});

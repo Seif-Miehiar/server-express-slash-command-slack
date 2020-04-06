@@ -27,6 +27,7 @@ app.get("/", (req, res) => {
 app.get("/all", (req, res) => res.status(202).send(MAIN.students));
 
 app.post("/helloPost", (req, res) => {
+	console.log(req.body);
 	MAIN.addTable(req.body);
 	return res
 		.status(201)
@@ -34,11 +35,17 @@ app.post("/helloPost", (req, res) => {
 });
 
 app.delete("/delete/name/:name", (req, res) => {
-	MAIN.removeTable(req.params.name);
+	MAIN.removeTableByName(req.params.user_name);
 	return res.status(202).send(MAIN.students);
 });
 
-app.delete("/delete/all", (req, res) => {
+app.delete("/delete/id/:id", (req, res) => {
+	console.log(req.params.id);
+	MAIN.removeTableById(req.params.id);
+	return res.status(202).send(MAIN.students);
+});
+
+app.delete("/deleteAll", (req, res) => {
 	MAIN.emptyStudents();
 	res.status(202).send([]);
 });

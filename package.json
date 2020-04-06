@@ -19,8 +19,7 @@
 		"mocha": "^7.1.1"
 	},
 	"scripts": {
-		"start": "mocha ./server/main/mainTest.js && nodemon server/server.js",
-		"test": "mocha ./server/mainTest.js"
+		"start": "nodemon ./server/server.js"
 	},
 	"repository": {
 		"type": "git",
