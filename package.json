@@ -20,8 +20,7 @@
   },
   "scripts": {
     "start": "mocha ./server/main/mainTest.js && nodemon server/server.js",
-    "test": "mocha ./server/main/mainTest.js",
-    "prepublish": "mocha"
+    "prepublish": "mocha ./server/main/mainTest.js"
   },
   "repository": {
     "type": "git",
