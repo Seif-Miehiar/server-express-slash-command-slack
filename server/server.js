@@ -25,11 +25,13 @@ app.get("/", (req, res) => {
 
 app.delete("/deleteAll", (req, res) => {
   users = {};
-  res.status(202).send(Object.keys(users).map((user_name) => users[user_name]));
+  res.status(202).send(users);
 });
 
 app.post("/helloPost", (req, res) => {
-  let arr = req.body.text.split(",") || req.body.text.split(" ");
+  let arr = req.body.text.includes(",")
+    ? req.body.text.split(",")
+    : req.body.text.split(" ");
   users[req.body.user_name] = {
     ...req.body,
     text: arr,
