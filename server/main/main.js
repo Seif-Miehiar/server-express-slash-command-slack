@@ -2,6 +2,7 @@ class Main {
 	constructor() {
 		this.students = [];
 	}
+
 	// get students() { //TODO: make the variables private
 	// 	return this.students;
 	// }
@@ -20,6 +21,7 @@ class Main {
 			zoomLink: zoomLink.trim(),
 		});
 	}
+
 	retriveTable(studentName) {
 		return this.students.reduce(
 			(acc, table) =>
@@ -29,11 +31,13 @@ class Main {
 			undefined
 		);
 	}
+
 	removeTable(studentName) {
 		this.students = this.students.filter(
 			(table) => !(table.pair1 === studentName || table.pair2 === studentName)
 		);
 	}
+
 	emptyStudents() {
 		this.students = [];
 	}
