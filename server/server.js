@@ -45,7 +45,7 @@ app.get("/all", (req, res) =>
   res.status(202).send(Object.keys(users).map((user_name) => users[user_name]))
 );
 
-app.post("/delete/id/:id", (req, res) => {
+app.delete("/delete/id/:id", (req, res) => {
   console.log("hello");
   let length = Object.keys(users).length;
 
@@ -59,7 +59,7 @@ app.post("/delete/id/:id", (req, res) => {
     : res.status(200).send("ok");
 });
 
-app.post("/delete/name/:name", (req, res) => {
+app.delete("/delete/name/:name", (req, res) => {
   delete users[req.params.name];
   return res.status(202).send(users);
 });
