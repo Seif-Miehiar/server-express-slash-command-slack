@@ -1,6 +1,25 @@
 .navbar {
-  box-shadow: 0px 3px 17px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 17px -5px rgba(0, 0, 0, 0.048);
+  background-color: #4c545c;
+
+  ul {
+    margin: 0 10% 0 10%;
+    li {
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      a {
+        color: rgba(255, 255, 255, 0.829);
+        transition: all 0.2s ease-in-out;
+      }
+      &:hover {
+        background-color: #b52283;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+      }
+    }
+  }
 }
+
 .sticky {
   position: fixed;
   top: 0;

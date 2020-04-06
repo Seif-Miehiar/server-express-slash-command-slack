@@ -8,17 +8,30 @@ import { AllDataComponent } from './components/all-data/all-data.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { OneStudentComponent } from './components/one-student/one-student.component';
 import { ReversePipe } from './pipes/reverse.pipe';
+import { SafeLinksPipe } from './pipes/safe-links.pipe';
+import { FeatherModule } from 'angular-feather';
+import { Trash } from 'angular-feather/icons';
 
+const icons = {
+  Trash,
+};
 @NgModule({
   declarations: [
     AppComponent,
     AllDataComponent,
     NavBarComponent,
     OneStudentComponent,
-    ReversePipe
+    ReversePipe,
+    SafeLinksPipe,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FeatherModule.pick(icons),
+  ],
+  // exports: [FeatherModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

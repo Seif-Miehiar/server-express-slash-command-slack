@@ -6,6 +6,7 @@
 	"dependencies": {
 		"angular-pipes": "^10.0.0",
 		"body-parser": "^1.19.0",
+		"chai": "^4.2.0",
 		"compression": "^1.7.4",
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
@@ -14,11 +15,12 @@
 		"path": "^0.12.7"
 	},
 	"devDependencies": {
-		"enhanced-resolve": "^3.3.0"
+		"enhanced-resolve": "^3.3.0",
+		"mocha": "^7.1.1"
 	},
 	"scripts": {
-		"start": "nodemon server/server.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"start": "mocha ./server/main/mainTest.js && nodemon server/server.js",
+		"test": "mocha ./server/mainTest.js"
 	},
 	"repository": {
 		"type": "git",
