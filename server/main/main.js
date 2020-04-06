@@ -38,15 +38,4 @@ class Main {
 		this.students = [];
 	}
 }
-
-const main = new Main();
-main.addTable({
-	user_name: "seif",
-	text: "@mohameddhia , zoomLinkRightHere",
-	command: " ",
-	user_id: "119922883377",
-});
-console.log(main.retriveTable("seif"));
-console.log(main.removeTable("seif"));
-console.log(main.retriveTable("seif"));
 module.exports = Main;
