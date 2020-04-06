@@ -22,6 +22,7 @@ describe("#main()", function () {
 		expect(main.addTable).to.be.a("function");
 		expect(main.retriveTable).to.be.a("function");
 		expect(main.removeTable).to.be.a("function");
+		expect(main.emptyStudents).to.be.a("function");
 	});
 	it("should start with an empty array of students", function () {
 		expect(main.students).to.eql([]);
@@ -92,5 +93,10 @@ describe("#main()", function () {
 			pair2: "hachem",
 			zoomLink: "zoomLinkRightHere",
 		});
+	});
+	it("should empty out the students array", function () {
+		main.addTable(seifsTable);
+		main.emptyStudents();
+		expect(main.students).to.eql([]);
 	});
 });

@@ -34,6 +34,9 @@ class Main {
 			(table) => !(table.pair1 === studentName || table.pair2 === studentName)
 		);
 	}
+	emptyStudents() {
+		this.students = [];
+	}
 }
 
 const main = new Main();
