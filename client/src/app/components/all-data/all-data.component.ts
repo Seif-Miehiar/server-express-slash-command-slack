@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../../services/server.service';
 import Swal from 'sweetalert2';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-all-data',
@@ -11,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class AllDataComponent implements OnInit {
   data: any;
 
-  constructor(private _http: ServerService, private http: HttpClient) {}
+  constructor(private _http: ServerService) {}
 
   ngOnInit() {
     this._http.getData().subscribe((comingData: any) => {
@@ -40,7 +39,10 @@ export class AllDataComponent implements OnInit {
       }
     });
     // .then(() =>
-    //   this.http.post('https://server-slash-command-slack.herokuapp.com/', {})
+    //   this._http.post(
+    //     'https://server-slash-command-slack.herokuapp.com/deleteAll',
+    //     {}
+    //   )
     // );
   }
 }

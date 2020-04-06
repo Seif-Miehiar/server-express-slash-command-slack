@@ -12,4 +12,10 @@ export class ServerService {
       'https://server-slash-command-slack.herokuapp.com/all'
     );
   }
+
+  deleteItem(id) {
+    return this._http.delete(
+      `https://server-slash-command-slack.herokuapp.com/id/${id}`
+    );
+  }
 }
