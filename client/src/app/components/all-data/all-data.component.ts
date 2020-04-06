@@ -37,31 +37,37 @@ export class AllDataComponent implements OnInit, OnDestroy {
 
   emptyAll() {
     Swal.fire({
-      title: 'Are you sure?',
+      title: 'Are you sure you want to delete everything?',
       text: "You won't be able to revert this!",
       icon: 'error',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
-    })
-      .then((result) => {
-        if (result.value) {
+      confirmButtonText: 'Yes, delete all !!',
+    }).then((result) => {
+      if (result.value) {
+        this._http.deleteAll().subscribe(() => {
+          // this.deleteStudent.emit(id);
+        });
+
+        Swal.fire({
+          title: 'Deleting..',
+          timer: 3000,
+          timerProgressBar: true,
+          onBeforeOpen: () => {
+            Swal.showLoading();
+          },
+        }).then(() =>
           Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Deleted!!',
             showConfirmButton: false,
             timer: 1000,
-          });
-        }
-      })
-      .then(() =>
-        this._http.post(
-          'https://server-slash-command-slack.herokuapp.com/deleteAll',
-          {}
-        )
-      );
+          })
+        );
+      }
+    });
   }
 
   ngOnDestroy() {
