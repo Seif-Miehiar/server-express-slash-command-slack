@@ -44,23 +44,24 @@ export class AllDataComponent implements OnInit, OnDestroy {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, delete it!',
-    }).then((result) => {
-      if (result.value) {
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Deleted!!',
-          showConfirmButton: false,
-          timer: 1000,
-        });
-      }
-    });
-    // .then(() =>
-    //   this._http.post(
-    //     'https://server-slash-command-slack.herokuapp.com/deleteAll',
-    //     {}
-    //   )
-    // );
+    })
+      .then((result) => {
+        if (result.value) {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Deleted!!',
+            showConfirmButton: false,
+            timer: 1000,
+          });
+        }
+      })
+      .then(() =>
+        this._http.post(
+          'https://server-slash-command-slack.herokuapp.com/deleteAll',
+          {}
+        )
+      );
   }
 
   ngOnDestroy() {
