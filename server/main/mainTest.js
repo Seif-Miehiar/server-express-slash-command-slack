@@ -37,12 +37,14 @@ describe("#main()", function () {
 				pair1: "seif",
 				pair2: "mohameddhia",
 				user_id: "119922883377",
+				timeStamp: new Date(),
 				zoomLink: "zoomLinkRightHere",
 			},
 			{
 				pair1: "jihad",
 				pair2: "hachem",
 				user_id: "11111q4d5465",
+				timeStamp: new Date(),
 				zoomLink: "zoomLinkRightHere",
 			},
 		]);
@@ -53,12 +55,14 @@ describe("#main()", function () {
 			pair1: "seif",
 			pair2: "mohameddhia",
 			user_id: "119922883377",
+			timeStamp: new Date(),
 			zoomLink: "zoomLinkRightHere",
 		});
 		expect(main.retriveTable("mohameddhia")).to.eql({
 			pair1: "seif",
 			pair2: "mohameddhia",
 			user_id: "119922883377",
+			timeStamp: new Date(),
 			zoomLink: "zoomLinkRightHere",
 		});
 		expect(main.retriveTable("jihad")).to.equal(undefined);
@@ -73,6 +77,7 @@ describe("#main()", function () {
 			pair1: "jihad",
 			pair2: "hachem",
 			user_id: "11111q4d5465",
+			timeStamp: new Date(),
 			zoomLink: "zoomLinkRightHere",
 		});
 
@@ -99,6 +104,7 @@ describe("#main()", function () {
 			pair1: "seif",
 			pair2: "hachem",
 			user_id: "119922883377",
+			timeStamp: new Date(),
 			zoomLink: "zoomLinkRightHere",
 		});
 		main.addTable(jihadsTable);
@@ -106,6 +112,7 @@ describe("#main()", function () {
 			pair1: "jihad",
 			pair2: "hachem",
 			user_id: "11111q4d5465",
+			timeStamp: new Date(),
 			zoomLink: "zoomLinkRightHere",
 		});
 	});

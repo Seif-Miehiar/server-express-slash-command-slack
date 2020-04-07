@@ -27,11 +27,18 @@ app.get("/", (req, res) => {
 app.get("/all", (req, res) => res.status(202).send(MAIN.students));
 
 app.post("/helloPost", (req, res) => {
+<<<<<<< HEAD
   console.log(req.body);
   MAIN.addTable(req.body);
   return res
     .status(201)
     .send("Thank you for sharing your Zoom link with us, HaPPy HaCkinG :D");
+=======
+	MAIN.addTable(req.body);
+	return res
+		.status(201)
+		.send("Thank you for sharing your Zoom link with us, HaPPy HaCkinG :D");
+>>>>>>> 8e03e2686024decaec18ec310ee6c5b9d8946d44
 });
 
 app.delete("/delete/name/:name", (req, res) => {
@@ -40,9 +47,14 @@ app.delete("/delete/name/:name", (req, res) => {
 });
 
 app.delete("/delete/id/:id", (req, res) => {
+<<<<<<< HEAD
   console.log(req.params.id);
   MAIN.removeTableById(req.params.id);
   return res.status(202).send(MAIN.students);
+=======
+	MAIN.removeTableById(req.params.id);
+	return res.status(202).send(MAIN.students);
+>>>>>>> 8e03e2686024decaec18ec310ee6c5b9d8946d44
 });
 
 app.delete("/deleteAll", (req, res) => {
