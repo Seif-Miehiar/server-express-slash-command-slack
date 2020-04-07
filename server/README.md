@@ -60,14 +60,18 @@
 ```
 [
     {
-        "pair1": "seif",
+        "pair1": "daiii",
+        "user_id": "119922883378",
         "pair2": "mohameddhia",
-        "zoomLink": "zoom link right here"
+        "zoomLink": "zoom link right here",
+        "timeStamp": "2020-04-07T16:19:23.528Z"
     },
     {
-        "pair1": "daiii",
+        "pair1": "seif",
+        "user_id": "119922883377",
         "pair2": "mohameddhia",
-        "zoomLink": "zoom link right here"
+        "zoomLink": "zoom link right here",
+        "timeStamp": "2020-04-07T17:00:26.122Z"
     }
 ]
 ```
