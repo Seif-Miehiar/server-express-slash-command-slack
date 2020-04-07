@@ -1,6 +1,6 @@
 ## **API documentation**
 
-<_this is the V1.0 so expect updates in the near future_>
+<_this is the V1.1 so expect updates in the near future_>
 
 ---
 
@@ -58,51 +58,19 @@
 - **Sample response:**
 
 ```
-  [
+[
     {
-        "user_name": "seif", // to understand the fields more refer back to the /helloPost route
-        "text": ["@mohameddhia", " zoom link right here"],
-        "command": " ",
-        "user_id": "119922883377",
-        "pair": "@mohameddhia",
-        "zoomLink": " zoom link right here",
+        "pair1": "seif",
+        "pair2": "mohameddhia",
+        "zoomLink": "zoom link right here"
+    },
+    {
+        "pair1": "daiii",
+        "pair2": "mohameddhia",
+        "zoomLink": "zoom link right here"
     }
-  ]
+]
 ```
-
----
-
-- **URL**
-
-  <_/delete/id/:id_>
-
-- **description**
-
-  <_deletes a zoom room using the id of who ever made it_>
-
-- **Method:**
-
-  <_`DELETE`_>
-
-- **URL Params**
-
-  **Required:**
-
-  `id=[integer]`
-
-- **Data Params**
-
-* **Success Response:**
-
-  <_What should the status code be on success and is there any returned data? This is useful when people need to to know what their callbacks should expect!_>
-
-  - **Code:** 200 <br />
-    **Content:** `"ok"`
-
-* **Error Response:**
-
-  - **Code:** 400 <br />
-    **Content:** `"not ok"`
 
 ---
 
@@ -112,7 +80,7 @@
 
 - **description**
 
-  <_deletes a zoom room using the name of who ever made it_>
+  <_deletes a zoom room using the name of either studens_>
 
 * **Method:**
 
@@ -127,4 +95,23 @@
 * **Success Response:**
 
   - **Code:** 202 <br />
-  - **Content:** `the users object` // still debating if it should be the array
+  - **Content:** `array of the remaining users`
+
+---
+
+- **URL**
+
+  <_/delete/all_>
+
+- **description**
+
+  <_deletes all the zoom rooms_>
+
+* **Method:**
+
+  <_`DELETE`_>
+
+* **Success Response:**
+
+  - **Code:** 202 <br />
+  - **Content:** `[]`
