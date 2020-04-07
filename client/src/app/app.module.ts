@@ -10,10 +10,12 @@ import { OneStudentComponent } from './components/one-student/one-student.compon
 import { ReversePipe } from './pipes/reverse.pipe';
 import { SafeLinksPipe } from './pipes/safe-links.pipe';
 import { FeatherModule } from 'angular-feather';
-import { Trash } from 'angular-feather/icons';
+import { Trash, Menu } from 'angular-feather/icons';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
 
 const icons = {
   Trash,
+  Menu,
 };
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ const icons = {
     OneStudentComponent,
     ReversePipe,
     SafeLinksPipe,
+    DateAgoPipe,
   ],
   imports: [
     BrowserModule,

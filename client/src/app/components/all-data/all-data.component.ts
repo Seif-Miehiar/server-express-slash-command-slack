@@ -31,6 +31,7 @@ export class AllDataComponent implements OnInit, OnDestroy {
 
   getData() {
     this._http.getData().subscribe((comingData: any) => {
+      console.log('COMING DATA', comingData);
       this._http.dataEvent.next(comingData);
     });
   }

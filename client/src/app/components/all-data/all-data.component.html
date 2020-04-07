@@ -1,12 +1,12 @@
 <app-nav-bar></app-nav-bar>
 <div id="allData">
-  <div *ngIf="!!data" class="row">
-    <div class="col-10"></div>
-    <div class="col-2">
+  <div class="row">
+    <div class="col-11"></div>
+    <div id="btnDiv" class="col-1">
       <button id="deleteBtn" (click)="emptyAll()">
         <div class="row">
-          <div class="col-8">Delete All</div>
-          <div id="icon" class="col-4">
+          <div class="col-6">Empty</div>
+          <div id="icon" class="col-6">
             <i-feather name="trash" style="width: 20px;"></i-feather>
           </div>
         </div>
