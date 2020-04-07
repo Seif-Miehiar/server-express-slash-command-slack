@@ -20,6 +20,7 @@ class Main {
 			user_id,
 			pair2: pair2[0] === "@" ? pair2.substring(1).trim() : pair2.trim(),
 			zoomLink: zoomLink.trim(),
+			timeStamp: new Date(),
 		});
 	}
 
