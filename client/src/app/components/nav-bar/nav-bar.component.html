@@ -18,7 +18,9 @@
     aria-expanded="false"
     aria-label="Toggle navigation"
   >
-    <span class="navbar-toggler-icon"></span>
+    <!-- <span class="navbar-toggler-icon"></span>
+     -->
+    <i-feather name="menu"></i-feather>
   </button>
 
   <!--  Use flexbox utility classes to change how the child elements are justified  -->
@@ -27,10 +29,6 @@
     id="navbarToggle"
   >
     <ul class="navbar-nav">
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="/">students prep</a>
-      </li> -->
-
       <li class="nav-item dropdown">
         <a
           class="nav-link dropdown-toggle"
@@ -49,7 +47,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="goToStaffPrep()">staff prep</a>
+        <a class="nav-link" href="#" (click)="goToStaffPrep()">staff prep</a>
       </li>
     </ul>
 

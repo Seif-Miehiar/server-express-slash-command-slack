@@ -27,6 +27,7 @@ app.get("/", (req, res) => {
 app.get("/all", (req, res) => res.status(202).send(MAIN.students));
 
 app.post("/helloPost", (req, res) => {
+<<<<<<< HEAD
   MAIN.addTable(req.body);
   return res
     .status(201)
@@ -41,6 +42,29 @@ app.delete("/delete/id/:id", (req, res) => {
 app.delete("/delete/all", (req, res) => {
   MAIN.emptyStudents();
   res.status(202).send([]);
+=======
+	console.log(req.body);
+	MAIN.addTable(req.body);
+	return res
+		.status(201)
+		.send("Thank you for sharing your Zoom link with us, HaPPy HaCkinG :D");
+});
+
+app.delete("/delete/name/:name", (req, res) => {
+	MAIN.removeTableByName(req.params.user_name);
+	return res.status(202).send(MAIN.students);
+});
+
+app.delete("/delete/id/:id", (req, res) => {
+	console.log(req.params.id);
+	MAIN.removeTableById(req.params.id);
+	return res.status(202).send(MAIN.students);
+});
+
+app.delete("/deleteAll", (req, res) => {
+	MAIN.emptyStudents();
+	res.status(202).send([]);
+>>>>>>> 8e4ea944bbf6b764dca0e3b142340afafefdfd35
 });
 
 const PORT = process.env.PORT || 5000;
