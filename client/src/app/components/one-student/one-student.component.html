@@ -1,6 +1,8 @@
 <div class="container">
-  <div id="rowIcon" class="row">
-    <div class="col-10"></div>
+  <div id="rowHead" class="row">
+    <div id="time" class="col-10">
+      <small>{{ student.timeStamp | dateAgo }}</small>
+    </div>
     <div class="col-2">
       <div id="icon" (click)="deleteItem(student.user_id)">
         x
@@ -26,4 +28,10 @@
   <button id="zoom" (click)="zoomLink()">
     open zoom
   </button>
+  <!-- <div class="row">
+    <div class="col-4">
+      <small>{{ student.timeStamp | dateAgo }}</small>
+    </div>
+    <div class="col-8"></div>
+  </div> -->
 </div>

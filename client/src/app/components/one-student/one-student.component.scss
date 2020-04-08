@@ -10,8 +10,14 @@
   padding: 0 2% 3% 2%;
   box-shadow: 0px 3px 17px -5px rgba(0, 0, 0, 0.089);
 
-  #rowIcon {
+  #rowHead {
     position: relative;
+
+    #time {
+      text-align: left;
+      color: rgba(255, 255, 255, 0.925);
+    }
+
     #icon {
       transition: all 0.2s ease-in-out;
       border-radius: 80%;
