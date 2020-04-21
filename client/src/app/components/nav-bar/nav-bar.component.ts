@@ -15,7 +15,7 @@ export class NavBarComponent implements OnInit {
   }
 
   goToCohort3() {
-    window.open('https://rbktunisia3prep.herokuapp.com/');
+    window.open('https://rbk-tunisia-cohort-3-prep.herokuapp.com/');
   }
 
   goToCohort4() {

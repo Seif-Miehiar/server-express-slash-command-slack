@@ -12,19 +12,19 @@ export class ServerService {
 
   getData() {
     return this._http.get(
-      'https://server-slash-command-slack.herokuapp.com/all'
+      'https://zoom-link-tunisia-cohort-3.herokuapp.com/all'
     );
   }
 
   deleteItem(id) {
     return this._http.delete(
-      `https://server-slash-command-slack.herokuapp.com/delete/id/${id}`
+      `https://zoom-link-tunisia-cohort-3.herokuapp.com/delete/id/${id}`
     );
   }
 
   deleteAll() {
     return this._http.delete(
-      'https://server-slash-command-slack.herokuapp.com/deleteAll'
+      'https://zoom-link-tunisia-cohort-3.herokuapp.com/deleteAll'
     );
   }
 }
