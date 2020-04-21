@@ -3,12 +3,15 @@
   padding: 1%;
 
   #btnDiv {
+    float: right;
     border-radius: 15px 0 0 15px;
     border: 1px solid rgb(153, 2, 2);
     border-right: none;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
 
     #deleteBtn {
+      float: right;
       border: none;
       outline: none;
       text-align: center;
@@ -21,7 +24,6 @@
 
     &:hover {
       background-color: rgb(153, 2, 2);
-      border-color: rgb(153, 2, 2);
     }
   }
 }
