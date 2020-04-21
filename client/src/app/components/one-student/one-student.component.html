@@ -1,30 +1,37 @@
 <div class="container">
-  <div id="rowIcon" class="row">
-    <div class="col-10"></div>
+  <div id="rowHead" class="row">
+    <div id="time" class="col-10">
+      <small>{{ student.timeStamp | dateAgo }}</small>
+    </div>
     <div class="col-2">
       <div id="icon" (click)="deleteItem(student.user_id)">
         x
-        <!-- <picture>
-          <img
-            src="../../../assets/trash.png"
-            alt="delete"
-            style="width: 20px;"
-          />
-        </picture> -->
       </div>
     </div>
   </div>
-  <div id="data">
+  <hr />
+  <div>
     <div class="row" id="names">
-      <div class="col-6">
-        <div id="username">{{ student.user_name }}</div>
+      <div class="col-10">
+        <div class="data" id="username">{{ student.pair1 }}</div>
       </div>
-      <div class="col-6">
-        <div id="pair">{{ student.pair }}</div>
+      <div class="col-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-10">
+        <div class="data" id="pair">{{ student.pair2 }}</div>
       </div>
     </div>
   </div>
+  <hr />
   <button id="zoom" (click)="zoomLink()">
     open zoom
   </button>
+  <!-- <div class="row">
+    <div class="col-4">
+      <small>{{ student.timeStamp | dateAgo }}</small>
+    </div>
+    <div class="col-8"></div>
+  </div> -->
 </div>

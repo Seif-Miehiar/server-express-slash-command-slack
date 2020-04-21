@@ -1,20 +1,38 @@
 .navbar {
-  box-shadow: 0px 3px 17px -5px rgba(0, 0, 0, 0.048);
-  background-color: #4c545c;
+  box-shadow: 0px 3px 17px -5px rgba(0, 0, 0, 0.089);
+  background-color: #566069;
 
   ul {
+    text-align: center;
     margin: 0 10% 0 10%;
+
     li {
       border-bottom-left-radius: 15px;
       border-bottom-right-radius: 15px;
+      transition: all 0.2s ease-in-out;
+
       a {
         color: rgba(255, 255, 255, 0.829);
         transition: all 0.2s ease-in-out;
       }
+
       &:hover {
         background-color: #b52283;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
+      }
+
+      .dropdown-menu {
+        a {
+          transition: all 0.2s ease-in-out;
+          color: black;
+
+          &:hover {
+            color: white;
+            cursor: pointer;
+            background-color: #b52283;
+          }
+        }
       }
     }
   }

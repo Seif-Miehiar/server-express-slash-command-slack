@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ServerService } from '../../services/server.service';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-one-student',
@@ -9,7 +10,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OneStudentComponent implements OnInit {
   @Input() student: any;
-  constructor(private _http: HttpClient) {}
+  // @Output() deleteStudent = new EventEmitter<number>();
+
+  constructor(private _http: ServerService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -18,6 +21,7 @@ export class OneStudentComponent implements OnInit {
   }
 
   deleteItem(id) {
+    console.log(id);
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -26,23 +30,29 @@ export class OneStudentComponent implements OnInit {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, delete it!',
-    })
-      .then((result) => {
-        if (result.value) {
+    }).then((result) => {
+      if (result.value) {
+        this._http.deleteItem(id).subscribe(() => {
+          // this.deleteStudent.emit(id);
+        });
+
+        Swal.fire({
+          title: 'Deleting..',
+          timer: 1500,
+          timerProgressBar: true,
+          onBeforeOpen: () => {
+            Swal.showLoading();
+          },
+        }).then(() =>
           Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Deleted!!',
             showConfirmButton: false,
             timer: 1000,
-          });
-        }
-      })
-      .then(() =>
-        this._http.post(
-          `https://server-slash-command-slack.herokuapp.com/delete/${id}`,
-          {}
-        )
-      );
+          })
+        );
+      }
+    });
   }
 }

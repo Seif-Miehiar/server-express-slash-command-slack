@@ -1,12 +1,16 @@
 <app-nav-bar></app-nav-bar>
 <div id="allData">
-  <div *ngIf="data.length !== 0" class="row">
-    <div class="col-10"></div>
-    <div class="col-2">
-      <button id="deleteBtn" (click)="emptyAll()">
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-10 col-lg-11"></div>
+    <div
+      id="btnDiv"
+      class="col-xs-6 col-sm-6 col-md-2 col-lg-1"
+      (click)="emptyAll()"
+    >
+      <button id="deleteBtn">
         <div class="row">
-          <div class="col-8">Delete All</div>
-          <div id="icon" class="col-4">
+          <div class="col-6">Empty</div>
+          <div id="icon" class="col-6">
             <i-feather name="trash" style="width: 20px;"></i-feather>
           </div>
         </div>
@@ -15,7 +19,10 @@
   </div>
 
   <div class="row">
-    <div class="col-4" *ngFor="let student of data | reverse">
+    <div
+      class="col-lg-4 col-md-6 col-sm-12"
+      *ngFor="let student of data | reverse"
+    >
       <app-one-student [student]="student"></app-one-student>
     </div>
   </div>

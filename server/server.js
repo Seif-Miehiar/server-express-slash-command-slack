@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
+const Main = require("./main/main");
 var compression = require("compression");
 var bodyParser = require("body-parser");
 var path = require("path");
 var cors = require("cors");
 
 let users = {};
-
+const MAIN = new Main();
 const botUserOAuthAccessToken =
   "xoxb-958246117539-1025544532499-BmE8Kz7ALXFt9XnD5VVetDsK";
 
@@ -23,28 +24,32 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "../dist/client/src/index.html"));
 });
 
+app.get("/all", (req, res) => res.status(202).send(MAIN.students));
+
 app.post("/helloPost", (req, res) => {
-  // console.log("hi");
-  let linkObject = Object.assign(req.body);
-
-  linkObject["text"] = linkObject["text"].split(",");
-  linkObject["pair"] = linkObject["text"][0];
-  linkObject["zoomLink"] = linkObject["text"][1];
-
-  users[linkObject.user_name] = linkObject;
-  res.send("Thank you for sharing your Zoom link with us, HaPPy HaCkinG :D");
+  MAIN.addTable(req.body);
+  return res
+    .status(201)
+    .send("Thank you for sharing your Zoom link with us, HaPPy HaCkinG :D");
 });
 
-app.get("/all", (req, res) => {
-  const arr = [];
-  for (const key in users) {
-    arr.push(users[key]);
-  }
-  res.send(arr);
+app.delete("/delete/name/:name", (req, res) => {
+  MAIN.removeTableByName(req.params.user_name);
+  return res.status(202).send(MAIN.students);
 });
 
-const port = process.env.PORT || 5000;
+app.delete("/delete/id/:id", (req, res) => {
+  MAIN.removeTableById(req.params.id);
+  return res.status(202).send(MAIN.students);
+});
 
-app.listen(port, function () {
-  console.log(`listening to ${port}`);
+app.delete("/deleteAll", (req, res) => {
+  MAIN.emptyStudents();
+  res.status(202).send([]);
+});
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, function () {
+  console.log(`☠☠ listening to ${PORT} ☠☠`);
 });

@@ -1,48 +1,70 @@
 .container {
-  color: white;
+  position: relative;
+  background-color: #566069;
+  color: rgba(255, 255, 255, 0.925);
   font-size: large;
   text-align: center;
-  width: 80%;
+  width: 70%;
   border: 1px solid #4c545c;
-  padding: 0 2% 2% 2%;
-  box-shadow: 0px 3px 17px -5px rgba(0, 0, 0, 0.411);
+  margin-top: 5%;
+  padding: 0 2% 3% 2%;
+  box-shadow: 0px 3px 17px -5px rgba(0, 0, 0, 0.089);
 
-  #rowIcon {
+  #rowHead {
+    position: relative;
+
+    #time {
+      text-align: left;
+      color: rgba(255, 255, 255, 0.925);
+    }
+
     #icon {
+      transition: all 0.2s ease-in-out;
       border-radius: 80%;
       float: right;
 
       &:hover {
         cursor: pointer;
-        color: red;
+        color: rgb(153, 2, 2);
       }
     }
   }
 
-  #data {
+  hr {
+    position: relative;
+    margin: 0.3em 0 0.8em 0;
+  }
+  .data {
+    position: relative;
     // background-color: red;
-    background-color: #4c545c60;
-    border-radius: 5px;
-    margin-top: 1%;
+    background-color: #b52284cb;
+    margin: 2%;
     padding: 1% 5%;
     text-align: center;
+  }
 
-    #username {
-      float: left;
-    }
+  #username {
+    position: relative;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    float: left;
+  }
 
-    #pair {
-      float: right;
-    }
+  #pair {
+    position: relative;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    float: right;
   }
   #zoom {
+    position: relative;
     outline: none;
     text-align: center;
     background-color: transparent;
     border: 1px solid #b52284cb;
     border-radius: 5px;
-    color: white;
-    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.925);
+    // margin-top: 1rem;
     font-size: 1rem;
     width: 8rem;
     height: 2rem;
